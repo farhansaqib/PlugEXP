@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="ipad10_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PlugEXP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -20,5 +29,79 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="qgD-Th-w4a">
+            <objects>
+                <viewController id="E2U-WM-rQN" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5NA-rr-9WY">
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="windowShopperBG" translatesAutoresizingMaskIntoConstraints="NO" id="BMa-CH-Jcd">
+                                <rect key="frame" x="0.0" y="20" width="834" height="1092"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O1n-fS-xim" customClass="LoginTextField" customModule="PlugEXP">
+                                <rect key="frame" x="100" y="490" width="634" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="4ug-gm-8sC"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="35"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Mr-IV-wXz" customClass="LoginTextField" customModule="PlugEXP">
+                                <rect key="frame" x="100" y="585" width="634" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="mZg-RO-CAK"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="windowShopperIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ts6-lP-4Vv">
+                                <rect key="frame" x="317" y="220" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="hWb-b8-BYA"/>
+                                    <constraint firstAttribute="width" constant="200" id="kTg-0t-Osj"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ypa-WG-hL5" customClass="LoginButton" customModule="PlugEXP" customModuleProvider="target">
+                                <rect key="frame" x="100" y="693" width="634" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.87632369995117188" green="0.089511968195438385" blue="0.40811079740524292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BMa-CH-Jcd" firstAttribute="leading" secondItem="Ovr-fN-u1F" secondAttribute="leading" id="4q2-0o-Oau"/>
+                            <constraint firstItem="Ovr-fN-u1F" firstAttribute="trailing" secondItem="BMa-CH-Jcd" secondAttribute="trailing" id="7FS-bl-jSK"/>
+                            <constraint firstItem="O1n-fS-xim" firstAttribute="top" secondItem="ts6-lP-4Vv" secondAttribute="bottom" constant="70" id="Fy4-9p-HTq"/>
+                            <constraint firstItem="O1n-fS-xim" firstAttribute="leading" secondItem="Ovr-fN-u1F" secondAttribute="leading" constant="100" id="Lo8-Ji-oOT"/>
+                            <constraint firstItem="5Mr-IV-wXz" firstAttribute="centerX" secondItem="5NA-rr-9WY" secondAttribute="centerX" id="Scz-HH-Bza"/>
+                            <constraint firstItem="Ovr-fN-u1F" firstAttribute="trailing" secondItem="5Mr-IV-wXz" secondAttribute="trailing" constant="100" id="awP-eh-vFK"/>
+                            <constraint firstItem="ts6-lP-4Vv" firstAttribute="top" secondItem="Ovr-fN-u1F" secondAttribute="top" constant="200" id="bI2-z3-RYf"/>
+                            <constraint firstItem="Ovr-fN-u1F" firstAttribute="trailing" secondItem="O1n-fS-xim" secondAttribute="trailing" constant="100" id="bdm-7C-d5d"/>
+                            <constraint firstItem="BMa-CH-Jcd" firstAttribute="top" secondItem="Ovr-fN-u1F" secondAttribute="top" id="bz3-z6-pOB"/>
+                            <constraint firstItem="ts6-lP-4Vv" firstAttribute="centerX" secondItem="5NA-rr-9WY" secondAttribute="centerX" id="ena-Uz-8h6"/>
+                            <constraint firstItem="5Mr-IV-wXz" firstAttribute="leading" secondItem="Ovr-fN-u1F" secondAttribute="leading" constant="100" id="fY6-U5-EQx"/>
+                            <constraint firstItem="5Mr-IV-wXz" firstAttribute="top" secondItem="O1n-fS-xim" secondAttribute="bottom" constant="35" id="pCI-fl-J94"/>
+                            <constraint firstItem="O1n-fS-xim" firstAttribute="centerX" secondItem="5NA-rr-9WY" secondAttribute="centerX" id="tCd-F5-MbV"/>
+                            <constraint firstItem="Ovr-fN-u1F" firstAttribute="bottom" secondItem="BMa-CH-Jcd" secondAttribute="bottom" id="w8Z-7T-PNy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ovr-fN-u1F"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HHd-W1-Et7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1416.5467625899282" y="48.561151079136692"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="windowShopperBG" width="414" height="736"/>
+        <image name="windowShopperIcon" width="115" height="115"/>
+    </resources>
 </document>
