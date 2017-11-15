@@ -15,6 +15,25 @@ class ExpandingTVC : UITableViewController {
     override func viewDidLoad() {
         productsData = getData()
         tableView.rowHeight = UITableViewAutomaticDimension
+        setupNavBar()
+    }
+    
+    func setupNavBar(){
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+       
+        navigationController?.navigationBar.isTranslucent = true
+        
+        let searchController = UISearchController(searchResultsController: nil)
+        
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling  = false
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        searchController.searchBar.tintColor = .white
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.white]
+        
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).attributedPlaceholder = NSAttributedString(string: "Search", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        
     }
     
     private func getParentCellIndex(expansionIndex: Int) -> Int {
@@ -36,7 +55,7 @@ class ExpandingTVC : UITableViewController {
         var data: [ProductsData?] = []
         
         let detail1 = [ProductDetails(price: "$22")]
-        let data1 = ProductsData(name: "Product 1",imageName: "shirt04", price: "$100", description: "This can be any description about the product, You can write multiple text", productDetails: detail1)
+        let data1 = ProductsData(name: "Product 1",imageName: "shirt04", price: "$100", description: "This can be any description about the product", productDetails: detail1)
          let detail2 = [ProductDetails(price: "$23")]
         let data2 = ProductsData(name: "Product2", imageName: "shirt03", price: "$150", description: "This can be any description about the product", productDetails: detail2)
          let detail3 = [ProductDetails(price: "$24")]
@@ -60,11 +79,7 @@ class ExpandingTVC : UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let rowData = productsData![indexPath.row] {
             let defaultCell = tableView.dequeueReusableCell(withIdentifier: "DefaultCell", for: indexPath) as! DefaultCell
-            defaultCell.productImage.image = UIImage(named: rowData.imagename)
-            defaultCell.price.text = rowData.price
-            defaultCell.productName.text = rowData.productName
-            defaultCell.discription.text = rowData.description
-            defaultCell.selectionStyle = .none
+            defaultCell.updateView(data: rowData)
             return defaultCell
         }
             // Row is ExpansionCell
@@ -77,14 +92,10 @@ class ExpandingTVC : UITableViewController {
                 let parentCellIndex = getParentCellIndex(expansionIndex: indexPath.row)
                 
                 //  Get the index of the flight data (e.g. if there are multiple ExpansionCells
-                let flightIndex = indexPath.row - parentCellIndex - 1
+                let rowIndex = indexPath.row - parentCellIndex - 1
                 
                 //  Set the cell's data
-                
-                expansionCell.cancelletionPrice.text = rowData.productDetails[flightIndex].cancellectionPrice
-                expansionCell.termsBtn.setTitle("Terms", for: .normal)
-                expansionCell.factsheetBtn.setTitle("Fact Sheet", for: .normal)
-                expansionCell.selectionStyle = .none
+                expansionCell.updateData(data: rowData, index: rowIndex)
                 return expansionCell
             
         }
@@ -94,11 +105,22 @@ class ExpandingTVC : UITableViewController {
 }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if let rowData = productsData?[indexPath.row] {
-            return 230
-        } else {
-            return 200
+        if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad {
+            if let rowData = productsData?[indexPath.row] {
+                return 230
+            } else {
+                return 200
+            }
+        }else{
+            if let rowData = productsData?[indexPath.row] {
+                return 135
+            } else {
+                return 110
         }
+        
+        
+      
+    }
     }
     
     private func expandCell(tableView: UITableView, index: Int) {
